@@ -59,8 +59,10 @@ jobs:
       - name: Build Docker image
         run: |
           cd auth
-          docker build -t auth .
-          docker run -d -p 8081:8081 --rm --name dockerprojectauth project2890/projectauth
+          docker login -u "project2890" -p "english12" docker.io
+          docker build -t project2890/projectauth:latestversion .
+          docker push project2890/projectauth:latestversion
+
   after_script:
     runs-on: self-hosted
     needs: [build, test, sonarQube, docker]
