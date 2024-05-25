@@ -60,7 +60,7 @@ jobs:
         run: |
           cd auth
           docker build -t auth .
-          docker run -d -p 8081:8081 --rm --name dockerprojectauth projectauth
+          docker run -d -p 8081:8081 --rm --name dockerprojectauth project2890/projectauth
   after_script:
     runs-on: self-hosted
     needs: [build, test, sonarQube, docker]
